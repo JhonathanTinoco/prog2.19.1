@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int vetor[10] = {90, 71, 82, 43, 64, 25, 98, 47, 25, 69};
+
+int main(void) {
+  int valor = 0, vezes = 0, posicao = 0;
+
+  printf("digite o valor que deseja buscar: ");
+  scanf("%d", &valor);
+  for (int i = 0; i < 10; i++){
+    if (valor == vetor[i]){
+      posicao = i;
+      vezes += 1;
+    }
+  }
+  if (vezes != 0){
+    printf("O numero aparece %d vezes, sua ultima posicao eh %d \n", vezes, posicao);
+  }else {
+    printf("o numero buscado nao aparece no vetor \n");
+  }
+
+  return 0;
+}
