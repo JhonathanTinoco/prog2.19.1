@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+int vetor[10] = {19, 18, 17, 16, 15, 14, 13, 12, 11, 10};
+
+
+int encontrarMaiorElemento();
+int encontrarMenorElemento();
+
+int main(void) {
+  int maior = 0, menor = 0, i;
+    
+  maior = encontrarMaiorElemento();
+  printf("maior = %d \n", maior);
+  menor = encontrarMenorElemento();
+  printf("menor = %d \n", menor);
+  for (i = 0; i < 10 ; i++){
+    printf("%d ",vetor[i]);
+  }
+  
+  return 0;
+}
+
+int encontrarMaiorElemento(){
+  int maiorAuxiliar = 0, posicaoMaiorAuxiliar = 0, auxiliar = 0, i;
+  for (i = 0; i < 10; i++){
+    if (vetor[i] > maiorAuxiliar){
+      maiorAuxiliar = vetor[i];
+      posicaoMaiorAuxiliar = i;
+    }
+  }
+  auxiliar = vetor[9];
+  vetor[9] = maiorAuxiliar;
+  vetor[posicaoMaiorAuxiliar] = auxiliar;
+
+  return maiorAuxiliar; 
+}
+
+int encontrarMenorElemento(){
+  int menorAuxiliar = vetor[0], posicaoMenorAuxiliar = 0, auxiliar = 0, i;
+  for (i = 0; i < 10; i++){
+    if (vetor[i] < menorAuxiliar){
+      menorAuxiliar = vetor[i];
+      posicaoMenorAuxiliar = i;
+    }
+  }
+  auxiliar = vetor[0];
+  vetor[0] = menorAuxiliar;
+  vetor[posicaoMenorAuxiliar] = auxiliar;
+
+  return menorAuxiliar;
+}
